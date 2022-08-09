@@ -1,5 +1,14 @@
 // Assignment code here
+var pwdLength;
+var pwdLowCase;
+var pwdUpCase;
+var pwdNum;
+var pwdSpecial;
 
+function writePassword() {
+  // first prompt
+  
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
