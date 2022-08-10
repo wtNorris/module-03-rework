@@ -76,6 +76,16 @@ function generatePassword() {
 
   } else if (pwdLowCase && pwdUpCase) {
     prmptAnswers = lowerCase.concat(lowerCase, upperCase); // no num no spec
+    
+  // next is if all no but (named)
+  } else if (pwdUpCase) {
+    prmptAnswers = upperCase;
+  } else if (pwdLowCase) {
+    prmptAnswers = lowerCase;
+  } else if (pwdNum) {
+    prmptAnswers = numbers;
+  } else if (pwdSpecial) {
+    prmptAnswers = specials;
   }
 
   // var for length and loop to randomize result based on prompts
