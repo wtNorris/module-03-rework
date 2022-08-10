@@ -46,21 +46,37 @@ function generatePassword() {
   } else if (pwdLowCase && pwdUpCase && pwdNum && pwdSpecial) {
     prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
     //console.log(prmptAnswers); huge list in console so commented out
-  } else if (pwdUpCase && pwdNum && pwdSpecial) { //no lowercase - tested works
-    prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
-  } else if (pwdLowCase && pwdNum && pwdSpecial) { //no uppercase - tested works
-    prmptAnswers = lowerCase.concat(lowerCase, numbers, specials);
-  } else if (pwdLowCase && pwdUpCase && pwdSpecial) { //no numbers - tested works
-    prmptAnswers = lowerCase.concat(lowerCase, upperCase, specials);
-  } else if (pwdLowCase && pwdUpCase && pwdNum) { //no specials -tw
-    prmptAnswers = lowerCase.concat(lowerCase, upperCase, numbers);
-  } else if (pwdNum && pwdSpecial) {
-    prmptAnswers = lowerCase.concat(numbers, specials); // no low no up
-  }
-  
-  // two true
 
-  // one true
+  } else if (pwdUpCase && pwdNum && pwdSpecial) { //no low
+    prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
+
+  } else if (pwdLowCase && pwdNum && pwdSpecial) { //no up
+    prmptAnswers = lowerCase.concat(lowerCase, numbers, specials);
+
+  } else if (pwdLowCase && pwdUpCase && pwdSpecial) { //no num
+    prmptAnswers = lowerCase.concat(lowerCase, upperCase, specials);
+
+  } else if (pwdLowCase && pwdUpCase && pwdNum) { //no spec
+    prmptAnswers = lowerCase.concat(lowerCase, upperCase, numbers);
+
+  } else if (pwdNum && pwdSpecial) {
+    prmptAnswers = lowerCase.concat(numbers, specials); // no low up
+
+  } else if (pwdUpCase && pwdSpecial) {
+    prmptAnswers = lowerCase.concat(upperCase, specials); // no low num
+
+  } else if (pwdUpCase && pwdNum) {
+    prmptAnswers = lowerCase.concat(upperCase, numbers); // no low spec
+
+  } else if (pwdLowCase && pwdSpecial) {
+    prmptAnswers = lowerCase.concat(lowerCase, specials); // no up num
+
+  } else if (pwdLowCase && pwdNum) {
+    prmptAnswers = lowerCase.concat(lowerCase, numbers); // no up no spec
+
+  } else if (pwdLowCase && pwdUpCase) {
+    prmptAnswers = lowerCase.concat(lowerCase, upperCase); // no num no spec
+  }
 
   // var for length and loop to randomize result based on prompts
   var passwordGen = [];
