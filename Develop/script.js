@@ -26,25 +26,29 @@ function generatePassword() {
     // confirms
     pwdLowCase = confirm("Do you want lowercase in your password?");
     console.log("passLwrCase " + pwdLowCase);
+
     pwdUpCase = confirm("Do you want uppercase in your password?");
     console.log("passUprCase " + pwdUpCase);
+
     pwdNum = confirm("Do you want numbers?");
     console.log("passNum " + pwdNum);
+
     pwdSpecial = confirm("Do you want special characters?");
     console.log("passSpecial " + pwdSpecial);
   };
 
   //if no input or wrong input
   if(!pwdLowCase && !pwdUpCase && !pwdNum && !pwdSpecial) {
-    prmptAnswers = alert("You may not have a password with only letters");
+    prmptAnswers = alert("Your password must include at least one choice");
 
-  // all four true  
+  // all four true // three true - 4 possibilities // 2 true - 6 possibilities // 1 true - 4
   } else if (pwdLowCase && pwdUpCase && pwdNum && pwdSpecial) {
     prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
-    console.log(prmptAnswers);
+    //console.log(prmptAnswers); huge list in console so commented out
+  } else if (pwdUpCase && pwdNum && pwdSpecial) {
+    prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
   }
-  // three true
-
+  
   // two true
 
   // one true
@@ -55,7 +59,7 @@ function generatePassword() {
   for (var i = 0; i < pwdLength; i++) {
     var combinedAnswers = prmptAnswers[Math.floor(Math.random() * prmptAnswers.length)];
     passwordGen.push(combinedAnswers);
-    console.log(combinedAnswers);
+    //console.log(combinedAnswers); also huge list commented out
   }
 
   var password = passwordGen.join("");
