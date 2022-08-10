@@ -42,11 +42,20 @@ function generatePassword() {
     prmptAnswers = alert("Your password must include at least one choice");
 
   // all four true // three true - 4 possibilities // 2 true - 6 possibilities // 1 true - 4
+  // also - is there a way to loop through these subtracting one each time?
   } else if (pwdLowCase && pwdUpCase && pwdNum && pwdSpecial) {
     prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
     //console.log(prmptAnswers); huge list in console so commented out
-  } else if (pwdUpCase && pwdNum && pwdSpecial) {
+  } else if (pwdUpCase && pwdNum && pwdSpecial) { //no lowercase - tested works
     prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
+  } else if (pwdLowCase && pwdNum && pwdSpecial) { //no uppercase - tested works
+    prmptAnswers = lowerCase.concat(lowerCase, numbers, specials);
+  } else if (pwdLowCase && pwdUpCase && pwdSpecial) { //no numbers - tested works
+    prmptAnswers = lowerCase.concat(lowerCase, upperCase, specials);
+  } else if (pwdLowCase && pwdUpCase && pwdNum) { //no specials -tw
+    prmptAnswers = lowerCase.concat(lowerCase, upperCase, numbers);
+  } else if (pwdNum && pwdSpecial) {
+    prmptAnswers = lowerCase.concat(numbers, specials); // no low no up
   }
   
   // two true
