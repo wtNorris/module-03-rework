@@ -37,11 +37,11 @@ function generatePassword() {
     console.log("passSpecial " + pwdSpecial);
   };
 
-  //if no input or wrong input
+  //if no choices were made
   if(!pwdLowCase && !pwdUpCase && !pwdNum && !pwdSpecial) {
     prmptAnswers = alert("Your password must include at least one choice");
 
-  // all four true // three true - 4 possibilities // 2 true - 6 possibilities // 1 true - 4
+  // all four true - 1 possibility // three true - 4 possibilities // 2 true - 6 possibilities // 1 true - 4
   // also - is there a way to loop through these subtracting one each time?
   } else if (pwdLowCase && pwdUpCase && pwdNum && pwdSpecial) {
     prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
@@ -49,31 +49,23 @@ function generatePassword() {
 
   } else if (pwdUpCase && pwdNum && pwdSpecial) { //no low
     prmptAnswers = lowerCase.concat(upperCase, numbers, specials);
-
   } else if (pwdLowCase && pwdNum && pwdSpecial) { //no up
     prmptAnswers = lowerCase.concat(lowerCase, numbers, specials);
-
   } else if (pwdLowCase && pwdUpCase && pwdSpecial) { //no num
     prmptAnswers = lowerCase.concat(lowerCase, upperCase, specials);
-
   } else if (pwdLowCase && pwdUpCase && pwdNum) { //no spec
     prmptAnswers = lowerCase.concat(lowerCase, upperCase, numbers);
 
   } else if (pwdNum && pwdSpecial) {
     prmptAnswers = lowerCase.concat(numbers, specials); // no low up
-
   } else if (pwdUpCase && pwdSpecial) {
     prmptAnswers = lowerCase.concat(upperCase, specials); // no low num
-
   } else if (pwdUpCase && pwdNum) {
     prmptAnswers = lowerCase.concat(upperCase, numbers); // no low spec
-
   } else if (pwdLowCase && pwdSpecial) {
     prmptAnswers = lowerCase.concat(lowerCase, specials); // no up num
-
   } else if (pwdLowCase && pwdNum) {
     prmptAnswers = lowerCase.concat(lowerCase, numbers); // no up no spec
-
   } else if (pwdLowCase && pwdUpCase) {
     prmptAnswers = lowerCase.concat(lowerCase, upperCase); // no num no spec
     
